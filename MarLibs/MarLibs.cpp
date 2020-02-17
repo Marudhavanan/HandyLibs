@@ -9,11 +9,9 @@ int main()
     std::cout << "Singly Linked!\n";
 
     SinglyLinked *sl = new SinglyLinked("Singly");
+    for (int i = 0; i < 25; i++)
+        sl->Insert(i);
 
-    sl->Insert(1);
-    sl->Insert(2);
-    sl->Insert(3);
-    sl->Insert(4);
     sl->print(true);
     cout << (sl->Search(5) ? "Found" : "Not Found") << endl;
     sl->reverse();

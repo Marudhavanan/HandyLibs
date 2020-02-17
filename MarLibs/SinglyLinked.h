@@ -24,6 +24,8 @@ public:
 	void print(bool flag = false);
 	void reverse();
 
+	int FindMid();
+
 private:
 	void print_reverse(SL*);
 
