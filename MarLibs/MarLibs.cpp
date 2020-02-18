@@ -9,13 +9,24 @@ int main()
     std::cout << "Singly Linked!\n";
 
     SinglyLinked *sl = new SinglyLinked("Singly");
-    for (int i = 0; i < 25; i++)
+    for (int i = 0; i < 26; i++)
         sl->Insert(i);
 
     sl->print(true);
     cout << (sl->Search(5) ? "Found" : "Not Found") << endl;
     sl->reverse();
     sl->print(false);
+
+    cout << "Midpoint element:" << sl->FindMid() << endl;
+
+    sl->DeleteAtPosition(0);
+    sl->print(false);
+
+    sl->TieLoop(12, 2);
+    cout << "Is looped:" << (sl->IsLoop() ? "Yes" : "No") << endl;
+    sl->Untie();
+    cout << "Is looped:" << (sl->IsLoop() ? "Yes" : "No") << endl;
+    //sl->print(false);
 
     delete sl;
 

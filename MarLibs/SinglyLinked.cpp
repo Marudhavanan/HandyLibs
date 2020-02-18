@@ -4,6 +4,7 @@ SinglyLinked::~SinglyLinked()
 {
 	SL* e = head;
 	int count = 0;
+	if (looped) return; //mem leak
 	while (e)
 	{
 		SL* t = e;
@@ -33,6 +34,34 @@ void SinglyLinked::Insert(int x)
 	elm->next = head;
 	head = elm;
 
+}
+
+bool SinglyLinked::DeleteAtPosition(int pos)
+{
+	SL* cur = head;
+	SL* prev = head;
+	int cur_pos = 0;
+	//handle head delete
+	if (pos == 0)
+	{
+		head = head->next;
+		free(cur);
+		return true;
+	}
+	while (cur)
+	{
+		if (cur_pos == pos)
+		{
+			prev->next = cur->next;
+			free(cur);
+			return true;
+		}
+
+		prev = cur;
+		cur = cur->next;
+		cur_pos++;
+	};
+	return false;
 }
 
 bool SinglyLinked::Search(int x)
@@ -85,6 +114,74 @@ void SinglyLinked::reverse()
 
 	head = prev;
 
+	return;
+}
+
+int SinglyLinked::FindMid()
+{
+	if (!head) return 0;
+
+	SL* slow = head;
+	SL* fast = head;
+	while (fast && fast->next)
+	{
+		fast = fast->next->next;
+		slow = slow->next;
+	};
+	return slow->x;
+}
+
+bool SinglyLinked::TieLoop(int pos1, int pos2)
+{
+	SL* from, * to;
+	SL* t = head;
+	while (t && pos1--)
+	{
+		t = t->next;
+	};
+	from = t;
+	t = head;
+	while (t && pos2--)
+	{
+		t = t->next;
+	};
+	to = t;
+	//save from
+	saved_next = from->next;
+	saved = from;
+	from->next = t;
+	looped = true;
+	return true;
+}
+
+bool SinglyLinked::IsLoop()
+{
+	SL* slow = head;
+	SL* fast = head->next;
+	while (slow && fast && fast->next)
+	{
+		if (slow == fast)
+			return true;
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	return false;
+}
+
+void SinglyLinked::Untie()
+{
+	if (!looped) return;
+	SL* t = head;
+	while (t)
+	{
+		if (t == saved)
+		{
+			t->next = saved_next;
+			looped = false;
+			return;
+		}
+		t = t->next;
+	}
 	return;
 }
 
