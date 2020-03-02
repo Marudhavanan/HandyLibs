@@ -147,11 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleLinked.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MarLibs.cpp" />
     <ClCompile Include="SinglyLinked.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DoubleLinked.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="SinglyLinked.h" />
   </ItemGroup>
