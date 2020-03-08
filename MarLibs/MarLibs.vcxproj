@@ -147,14 +147,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="circular.cpp" />
     <ClCompile Include="DoubleLinked.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MarLibs.cpp" />
+    <ClCompile Include="queue.cpp" />
     <ClCompile Include="SinglyLinked.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="circular.h" />
     <ClInclude Include="DoubleLinked.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="queue.h" />
     <ClInclude Include="SinglyLinked.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
