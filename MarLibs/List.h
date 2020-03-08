@@ -19,19 +19,21 @@ public:
 		cout << myName << " Destructed" << endl;
 	}
 
-	
+	virtual string GetName() { return myName; }
 	virtual void Insert(int x) = 0;
-	virtual bool Search(int x) = 0;
-	virtual void reverse() = 0;
-	virtual void print(bool flag) = 0;
-	virtual int  FindMid() = 0;
-	virtual bool DeleteAtPosition(int pos) = 0;
-	virtual bool TieLoop(int pos1, int pos2) = 0;
-	virtual bool IsLoop(void) = 0;
-	virtual void Untie(void) = 0;
+	virtual bool Search(int x) { cout << __FUNCTION__ << " Not implemented!"; return false; }
 
-private:
+	virtual void reverse() { cout << __FUNCTION__ << " Not implemented!"; };
+	virtual void print(bool flag) { cout << __FUNCTION__ << " Not implemented!"; };
+	virtual int  FindMid() { cout << __FUNCTION__ << " Not implemented!"; return 0; };
+	virtual bool DeleteAtPosition(int pos) { cout << __FUNCTION__ << " Not implemented!"; return false; };
+	virtual bool TieLoop(int pos1, int pos2) { cout << __FUNCTION__ << " Not implemented!"; return false; };
+	virtual bool IsLoop(void) { cout << __FUNCTION__ << " Not implemented!"; return false; };
+	virtual void Untie(void) { cout << __FUNCTION__ << " Not implemented!";  };
+
+protected:
 	string myName;
-
+	int count;
+	bool looped;
 };
 

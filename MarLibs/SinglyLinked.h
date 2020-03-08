@@ -37,7 +37,6 @@ private:
 	SL* head;
 	SL* saved, *saved_next;
 	string name;
-	int count;
-	bool looped;
+	
 };
 

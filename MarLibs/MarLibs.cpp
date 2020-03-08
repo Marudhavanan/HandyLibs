@@ -3,43 +3,36 @@
 
 #include <iostream>
 #include "SinglyLinked.h"
+#include "DoubleLinked.h"
+
 
 int main()
 {
-    std::cout << "Singly Linked!\n";
+    //List *l = new SinglyLinked("Singly");
+    List* l = new DoubleLinked("Double");
+    
+    cout << "Name:" << l->GetName() << endl;
 
-    SinglyLinked *sl = new SinglyLinked("Singly");
-    for (int i = 0; i < 26; i++)
-        sl->Insert(i);
+    for (int i = 0; i < 32; i++)
+        l->Insert(i);
 
-    sl->print(true);
-    cout << (sl->Search(5) ? "Found" : "Not Found") << endl;
-    sl->reverse();
-    sl->print(false);
+    l->print(false);
+    cout << (l->Search(5) ? "Found" : "Not Found") << endl;
+    l->reverse();
+    l->print(false);
 
-    cout << "Midpoint element:" << sl->FindMid() << endl;
+    cout << "Midpoint element:" << l->FindMid() << endl;
 
-    sl->DeleteAtPosition(0);
-    sl->print(false);
+    l->DeleteAtPosition(0);
+    l->print(false);
 
-    sl->TieLoop(12, 2);
-    cout << "Is looped:" << (sl->IsLoop() ? "Yes" : "No") << endl;
-    sl->Untie();
-    cout << "Is looped:" << (sl->IsLoop() ? "Yes" : "No") << endl;
-    //sl->print(false);
+    l->TieLoop(12, 2);
+    cout << "Is looped:" << (l->IsLoop() ? "Yes" : "No") << endl;
+    l->Untie();
+    cout << "Is looped:" << (l->IsLoop() ? "Yes" : "No") << endl;
+    l->print(false);
 
-    delete sl;
+    delete l;
 
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
