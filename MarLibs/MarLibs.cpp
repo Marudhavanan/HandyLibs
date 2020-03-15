@@ -4,6 +4,7 @@
 #include <iostream>
 #include "SinglyLinked.h"
 #include "DoubleLinked.h"
+#include "circular.h"
 
 
 int main()
@@ -34,5 +35,20 @@ int main()
 
     delete l;
 
+	//Circular queue
+	queue *cq = new circular("Circular");
+	int count = 10;
+	cq->create(count);
+	for (int i = 0; i < count; i++)
+	{
+		cq->push(i);
+	}
+	int ele = 0;
+	while(cq->pop(ele))
+	{
+		cout << "CQ element:" << ele << endl;
+	}
+	
+	
     return 0;
 }
