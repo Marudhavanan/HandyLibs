@@ -3,7 +3,10 @@
 bool circular::push(int element)
 {
 	//check for queue full
-	if (move_ptr(cq.head) == cq.tail - 1)
+	if (
+		(cq.tail == 0 && cq.head == cq.count - 1) ||
+		(cq.head == cq.tail - 1)
+		)
 	{
 		cout << "Circular queue full!" << endl;
 		return false;

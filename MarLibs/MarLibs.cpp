@@ -37,7 +37,8 @@ int main()
 
 	//Circular queue
 	queue *cq = new circular("Circular");
-	int count = 10;
+	int count = 20;
+	//Basic test
 	cq->create(count);
 	for (int i = 0; i < count; i++)
 	{
@@ -49,6 +50,15 @@ int main()
 		cout << "CQ element:" << ele << endl;
 	}
 	
+	//Overflow test
+	for (int i = 0; i < count; i++)
+	{
+		cq->push(i);
+	}
+	cq->push(11);
+
+	
+
 	
     return 0;
 }
