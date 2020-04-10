@@ -30,6 +30,20 @@ bool circular::pop(int & element)
 	return true;
 }
 
+void circular::destroy()
+{
+	cq.head = cq.tail = 0;
+}
+
+void circular::dump()
+{
+	int ele;
+	while (pop(ele))
+	{
+		cout << "CQ element:" << ele << endl;
+	}
+}
+
 
 
 int circular::move_ptr(int x)

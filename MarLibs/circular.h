@@ -24,6 +24,8 @@ public:
 	}
 	virtual bool push(int element);
 	virtual bool pop(int &element);
+	virtual void destroy();
+	virtual void dump();
 private:
 	int move_ptr(int);
 	CQ cq;

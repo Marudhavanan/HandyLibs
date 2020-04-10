@@ -17,6 +17,7 @@ public:
 	virtual void destroy() {
 		cout << "destroy not implemented" << endl;
 	}
+	virtual void dump() {}
 private:
 	string name;
 };
